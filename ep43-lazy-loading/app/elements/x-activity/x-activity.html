@@ -52,7 +52,7 @@
 
     <iron-ajax
       auto
-      url="/data/contacts.json"
+      url="../../data/contacts.json"
       handle-as="json"
       last-response="{{contacts}}"></iron-ajax>
 
@@ -60,7 +60,7 @@
 
       <template is="dom-repeat" items="[[contacts]]" as="contact">
         <div class="friend-card">
-          <img src="/images/avatar.png" alt="A profile photo of Rob Dodson" />
+          <img src="../../images/avatar.png" alt="A profile photo of Rob Dodson" />
           <p class="friend-quote">"[[contact.mediumText]]"</p>
         </div>
       </template>
