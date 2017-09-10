@@ -30,6 +30,9 @@
         return Object.assign({}, state, { friends: friends });
     }
   }
-  const store = Redux.createStore(reducer);
+  const store = Redux.createStore(
+    reducer, /* preloadedState, */
+    window.devToolsExtension && window.devToolsExtension()
+  );
   const ReduxBehavior = PolymerRedux(store);
 </script>
