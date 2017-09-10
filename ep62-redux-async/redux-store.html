@@ -37,8 +37,10 @@
   }
   const store = Redux.createStore(
     reducer,
-    Redux.applyMiddleware(ReduxThunk.default)
-  );
+    Redux.compose(
+    Redux.applyMiddleware(ReduxThunk.default),
+    window.devToolsExtension && window.devToolsExtension()
+  ));
   const ReduxBehavior = PolymerRedux(store);
   const AsyncActionsBehavior = {
     actions: {
