@@ -34,11 +34,15 @@
           username: action.username
         });
     }
-  }
-  const store = Redux.createStore(
+  } 
+  var store = Redux.createStore(
     reducer,
-    Redux.applyMiddleware(ReduxThunk.default)
-  );
+    Redux.compose(
+      Redux.applyMiddleware(ReduxThunk.default), 
+      window.devToolsExtension ?
+      window.devToolsExtension() :
+      v => v
+  )); 
   const ReduxBehavior = PolymerRedux(store);
   const AsyncActionsBehavior = {
     actions: {
